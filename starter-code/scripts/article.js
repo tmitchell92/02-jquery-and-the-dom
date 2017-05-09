@@ -19,7 +19,7 @@ Article.prototype.toHtml = function() {
   However, in our modules.css stylesheet, we gave all elements
   with a class of template a display of none. Let's make
   sure we're not accidentally hiding our cloned article! */
-
+  $newArticle.removeClass('template');
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
 
@@ -31,6 +31,10 @@ Article.prototype.toHtml = function() {
     3. article title,
     4. article body, and
     5. publication date. */
+  $newArticle.find('h1').html(this.title);
+  $newArticle.find('a').html(this.author);
+  $newArticle.find('a').attr('href', this.authorUrl);
+  $newArticle.find('.article-body').html(this.body);
 
   // Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
