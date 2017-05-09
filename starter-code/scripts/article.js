@@ -8,6 +8,7 @@ function Article (rawDataObj) {
   this.title = rawDataObj.title;
   this.category = rawDataObj.category;
   this.author = rawDataObj.author;
+  this.authorUrl = rawDataObj.authorUrl;
   this.publishedOn = rawDataObj.publishedOn;
   this.body = rawDataObj.body;
 }
